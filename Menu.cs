@@ -4,7 +4,8 @@ namespace ProjetoLetsCode2
 {
     public class Menu
     {
-        public string GeneralMenu() {
+        public string GeneralMenu()
+        {
             Console.WriteLine("Bem vindo ao sistema de marketplace");
             Console.WriteLine("Observe o menu e escolha o número da opção desejada");
             Console.WriteLine("01 - Cadastrar Novo Usuário");
@@ -19,15 +20,21 @@ namespace ProjetoLetsCode2
             Console.WriteLine("10 - Deletar dados Usuário");
             Console.WriteLine("11 - Deletar dados Vendedor");
             Console.WriteLine("12 - Deletar dados Cliente");
-            Console.WriteLine("13 - Sair");
+            Console.WriteLine("13 - Listar Usuário");
+            Console.WriteLine("14 - Listar Vendedor");
+            Console.WriteLine("15 - Listar Cliente");
+            Console.WriteLine("16 - Sair");
             Console.Write("Opção: ");
             return Console.ReadLine();
         }
 
-        public void Option(int _option) {
-            switch (_option) {
+        public void Option(int _option)
+        {
+            switch (_option)
+            {
                 case 1:
                     Console.WriteLine("Caso 01");
+                    Create.CreateUser();
                     break;
                 case 2:
                     Console.WriteLine("Caso 02");
@@ -63,7 +70,17 @@ namespace ProjetoLetsCode2
                     Console.WriteLine("Caso 12");
                     break;
                 case 13:
-                    Console.WriteLine("Caso 13");
+                    Console.WriteLine("Listar Usuários");
+                    Database.Users.ForEach(user => Console.WriteLine(user));
+                    break;
+                case 14:
+                    Console.WriteLine("Caso 14");
+                    break;
+                case 15:
+                    Console.WriteLine("Caso 15");
+                    break;
+                case 16:
+                    Console.WriteLine("Caso 16");
                     break;
                 default:
                     Console.WriteLine("Opção Inválida, tente novamente");
@@ -72,7 +89,8 @@ namespace ProjetoLetsCode2
             }
         }
 
-        public void GeneralMenuOption() {
+        public void GeneralMenuOption()
+        {
             string _option = GeneralMenu();
             int _optionInt;
             bool _optionToInt = Int32.TryParse(_option, out _optionInt);
